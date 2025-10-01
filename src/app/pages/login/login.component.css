@@ -1,0 +1,67 @@
+.full-width {
+  width: 100%; /* keep full input width */
+}
+
+.mat-card {
+  padding: 40px 30px;       /* normal padding */
+  min-height: 550px;        /* increase height for breathing space */
+  max-width: 400px;         /* card width */
+  margin: 90px auto;        /* center horizontally with top margin */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;       /* center align text & buttons */
+}
+
+.logincard {
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
+  min-height: 80vh;         /* card in middle of viewport */
+}
+
+.mat-card h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 30px 0;           /* space above & below title */
+  color: #3f51b5;
+}
+
+.form {
+width: 70% ;
+margin-left: 15%;
+  margin-bottom: 20px;      /* space between inputs */
+}
+
+.mat-raised-button {
+  padding: 10px 30px;       /* normal button size */
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin: 15px auto;        /* space below buttons */
+  display: block;
+  width: 100%;
+  max-width: 200px;         /* prevent too wide */
+}
+
+.mat-raised-button[color="primary"] {
+  background-color: #3f51b5;
+  color: #fff;
+}
+
+.mat-raised-button[color="accent"] {
+  background-color: #ff4081;
+  color: #fff;
+}
+
+.mat-raised-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+.container.text-center img {
+  max-width: 150px;
+  margin-top: 30px;         /* space above logo */
+  margin-bottom: 30px;      /* space below logo */
+}

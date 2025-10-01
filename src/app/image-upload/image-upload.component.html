@@ -1,0 +1,73 @@
+<p>image-upload works!</p>
+
+<div *ngIf="dataLoadingError" style="color: red; padding: 20px; border: 1px solid red; margin: 20px 0;">
+  <p>Error loading data for this page. Please check the browser console for details and ensure the backend services are running.</p>
+</div>
+
+<div class="upload-container mat-elevation-z4">
+  <h2>📤 Upload Image</h2>
+
+  <form (submit)="onSubmit(); $event.preventDefault()" enctype="multipart/form-data">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Description</mat-label>
+      <input matInput [(ngModel)]="description" name="description" required>
+    </mat-form-field>
+
+    <input type="file" (change)="onFileChange($event)" accept="image/*" required />
+
+    <div *ngIf="imagePreview" class="image-preview">
+      <img [src]="imagePreview" alt="Image Preview" />
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" class="upload-btn">
+      Upload
+    </button>
+  </form>
+
+  <div *ngIf="uploadedImages.length > 0" class="image-list">
+   <div style="display: flex;"><h2>🖼 Uploaded Images </h2> &nbsp; <span><mat-icon>refresh</mat-icon></span></div> 
+    <div class="image-grid">
+      <img
+        *ngFor="let img of uploadedImages"
+        [src]="img.url"
+        (click)="setAsBackground(img.id)"
+        title="Click to set as background"
+      />
+
+      
+    </div>
+
+
+
+
+
+</div>
+<div><br>
+<h2>Select Background Color</h2><br>
+</div>
+<div>
+ 
+  
+ <div><input type="text" [(ngModel)]="colourData"/>
+  <button (click)="addColor()">ADD color</button>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+
+
+  <div 
+    *ngFor="let color of Colours"
+    [ngStyle]="getColorStyle(color.color)"
+    class="color-box"
+    (click)="selectColor(color)">
+    {{ color.color}}
+  </div>
+</div>
+<div style="margin-top: 20px;">
+  <button
+    mat-raised-button
+    [color]="isMaterialColor(selectedColor) ? selectedColor : null"
+    [ngStyle]="!isMaterialColor(selectedColor) ? {'background-color': selectedColor, 'color': getTextColor(selectedColor)} : {}">
+    Selected Color: {{ selectedColor || 'None' }}
+  </button>
+</div>
+  </div>

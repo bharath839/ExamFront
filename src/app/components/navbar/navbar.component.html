@@ -1,0 +1,68 @@
+<!-- <h1>this is navbar</h1> -->
+<mat-toolbar  [style.background-color]="colour">
+  <a
+    routerLink="/admin"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu_book</mat-icon>
+  </a>
+  <span>Examportal  {{version}}</span>
+  <span class="example-spacer"></span>
+  <a
+    *ngIf="!isLoggedIn"
+    [routerLink]="'/login'"
+    mat-button
+    class=""
+    aria-label="Login button"
+  >
+    Login
+  </a>
+
+  <a
+    *ngIf="!isLoggedIn"
+    [routerLink]="'/signup'"
+    mat-button
+    class=" ml10"
+    aria-label="Register button"
+  >
+    Register
+  </a>
+<div>
+
+
+
+</div>
+@if (isLoggedIn) {
+  <a
+    (click)="logout()"
+    mat-button
+    class="ml10"
+    aria-label="Logout button"
+  >
+    Logout
+  </a>
+}
+
+
+ @if (isLoggedIn && user) {
+  <button
+    *ngIf="isLoggedIn && user"
+    class="navbar-button ml10"
+    mat-button
+    routerLink="/admin/profile"
+    aria-label="User profile button"
+  >
+    {{ user.username }}
+  </button>
+ }
+
+
+<button  class=" ml10"
+    mat-button (click)="triggerNotification()">Notification</button>
+</mat-toolbar>
+  <app-notification #notificationComponent
+ 
+  [type]="type" 
+></app-notification>
